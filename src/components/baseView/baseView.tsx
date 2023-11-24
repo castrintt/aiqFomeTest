@@ -1,11 +1,11 @@
 import { BaseViewProps } from "./baseView.types";
 import { Container, Header, MainContent, Footer } from "./baseView.styles";
 
-const BaseView = ({ content }: BaseViewProps) => {
+const BaseView = ({ children }: BaseViewProps) => {
   return (
     <Container>
       <Header></Header>
-      <MainContent>{content}</MainContent>
+      <MainContent>{children}</MainContent>
       <Footer></Footer>
     </Container>
   );

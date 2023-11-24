@@ -1,3 +1,3 @@
 export type BaseViewProps = {
-  content: React.ReactNode;
+  children: React.ReactNode;
 };
