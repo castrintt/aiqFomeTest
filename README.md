@@ -6,7 +6,7 @@ Este é um projeto de teste para a vaga de Front End Pleno na Aiqfome. O objetiv
 
 ## Tecnologias Utilizadas
 
-- React.js
+- React
 - Styled Components
 - Typescript
 
