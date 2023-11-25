@@ -1,30 +1,24 @@
-# React + TypeScript + Vite
+# Projeto de Teste - Vaga de Front End Pleno na Aiqfome
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o Projeto
 
-Currently, two official plugins are available:
+Este é um projeto de teste para a vaga de Front End Pleno na Aiqfome. O objetivo deste projeto é demonstrar minhas habilidades e conhecimentos em desenvolvimento front-end.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- React
+- Styled Components
+- Typescript
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalação
 
-- Configure the top-level `parserOptions` property like this:
+Para instalar e executar este projeto, siga as seguintes etapas:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. Clone este repositório para a sua máquina local usando `git clone https://github.com/castrintt/aiqFomeTest.git`.
+2. Navegue até o diretório do projeto usando `cd aiqFomeTest`.
+3. Instale todas as dependências necessárias usando `npm install`.
+4. Inicie o servidor de desenvolvimento usando `npm run dev`.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Contato
+
+Igor de Castro Abrahão - igordc38@gmail.com
