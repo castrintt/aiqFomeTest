@@ -6,7 +6,7 @@ const Base = () => {
   //   const { Actions, States } = UseBaseController();
 
   return (
-    <BaseView>
+    <BaseView haveTicket={true}> 
       <Container>
         <p>teste</p>
       </Container>
