@@ -10,6 +10,10 @@ export const Base = styled.header`
   grid-template-columns: 1.2fr 1.5fr 1fr;
   justify-content: center;
   align-items: center;
+
+  @media all and (min-width: 1440px) {
+    grid-template-columns: 28% 1.5fr 1fr;
+  }
 `;
 export const HeaderInfoContainer = styled.div`
   width: 100%;

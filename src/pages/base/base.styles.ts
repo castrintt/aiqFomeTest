@@ -154,8 +154,9 @@ export const CardLine = styled.div`
 `;
 
 export const CardBase = styled.div`
-  width: 90%;
+  width: 100%;
   height: 7rem;
+  margin-left: 7rem;
   margin-block: 1rem;
   display: flex;
   justify-content: center;
