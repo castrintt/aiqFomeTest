@@ -2,8 +2,8 @@ import { Colors } from "@globals/colors";
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,5 +13,9 @@ export const Container = styled.div`
 
 export const MainContent = styled.main`
   width: 100%;
-  flex: 1;
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
