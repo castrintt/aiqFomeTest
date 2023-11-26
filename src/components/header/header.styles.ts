@@ -76,7 +76,7 @@ export const HeaderSearchContainer = styled.div`
     align-items: center;
     gap: 0.5rem;
     border-radius: 0.5rem;
-    border: 1px solid ${Colors.gray.lighter};
+    border: 1px solid ${Colors.gray.medium};
     background: ${Colors.white};
     font-size: 0.875rem;
     font-style: normal;
