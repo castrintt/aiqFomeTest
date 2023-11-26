@@ -23,12 +23,13 @@ html {
 body {
   scrollbar-width: thin;
   scrollbar-color: #7B1FA2;
-  overflow-y: scroll;
+  overflow: scroll;
 
 }
 
 body::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
   /* largura da barra de rolagem inteira */
 }
 

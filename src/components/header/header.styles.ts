@@ -14,6 +14,7 @@ export const Base = styled.header`
   @media all and (min-width: 1440px) {
     grid-template-columns: 28% 1.5fr 1fr;
   }
+ 
 `;
 export const HeaderInfoContainer = styled.div`
   width: 100%;

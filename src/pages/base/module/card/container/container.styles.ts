@@ -7,4 +7,8 @@ export const Base = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
+  @media all and (min-width: 1440px) {
+    width: 95%;
+  }
 `;
