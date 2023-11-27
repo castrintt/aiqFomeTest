@@ -1,4 +1,4 @@
-import Container from "./container/container";
+import Container from "./subtitle/container/container";
 import Content from "./content/content";
 import Title from "./title/title";
 import Subtitle from "./subtitle/subtitle";

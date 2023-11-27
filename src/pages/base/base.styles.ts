@@ -296,8 +296,8 @@ export const CutleryContainer = styled.div`
 
 export const CutleryItem = styled.div`
   width: 25rem;
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 
   & > div > span {
@@ -334,8 +334,8 @@ export const ExtraContainer = styled.div`
 
 export const ExtraItem = styled.div`
   width: 25rem;
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 
   & > div > span {
