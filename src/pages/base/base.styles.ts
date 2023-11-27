@@ -258,7 +258,7 @@ export const BeverageContainer = styled.div`
 `;
 
 export const BeverageItem = styled.div`
-  width: 25rem;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;

@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import { currencyConversion } from "@utils/currencyConversion";
 
 const UseBaseController = () => {
@@ -6,7 +6,6 @@ const UseBaseController = () => {
   const [mealSize, setMealSize] = useState<"medium" | "large" | "default">(
     "default"
   );
-
   const [mealBasePrice, setMealBasePrice] = useState<number>(19.9);
   const [mealCount, setMealCount] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -16,24 +15,19 @@ const UseBaseController = () => {
   const [fortuneCookie, setFortuneCookie] = useState<boolean>(false);
   const [springRoll, setSpringRoll] = useState<boolean>(false);
 
-  const beveragesBasePrice = useMemo(() => {
-    return {
-      coke: 5.0,
-      juice: 6.0,
-      water: 3.0,
-    };
-  }, []);
-
   const [beverages, setBeverages] = useState({
     coke: {
+      basePrice: 5.0,
       count: 0,
       price: 0,
     },
     juice: {
+      basePrice: 6.0,
       count: 0,
       price: 0,
     },
     water: {
+      basePrice: 3.0,
       count: 0,
       price: 0,
     },
@@ -127,18 +121,20 @@ const UseBaseController = () => {
     (beverage: "coke" | "juice" | "water") => {
       const selectedBeverage = beverages[beverage];
       const countBeverage = selectedBeverage.count + 1;
-      const priceBeverage =
-        selectedBeverage.price + beveragesBasePrice[beverage];
+      const beverageBasePrice = beverages[beverage].basePrice;
+      const priceBeverage = selectedBeverage.price + beverageBasePrice;
+
       setBeverages({
         ...beverages,
         [beverage]: {
           ...[beverage],
           count: countBeverage,
           price: priceBeverage,
+          basePrice: beverageBasePrice,
         },
       });
     },
-    [beverages, beveragesBasePrice]
+    [beverages]
   );
 
   const onRemoveBeverage = useCallback(
@@ -148,18 +144,20 @@ const UseBaseController = () => {
         selectedBeverage.count > 0
           ? selectedBeverage.count - 1
           : selectedBeverage.count;
-      const priceBeverage =
-        selectedBeverage.price - beveragesBasePrice[beverage];
+      const beverageBasePrice = beverages[beverage].basePrice;
+      const priceBeverage = selectedBeverage.price - beverageBasePrice;
+
       setBeverages({
         ...beverages,
         [beverage]: {
           ...[beverage],
           count: countBeverage,
           price: priceBeverage,
+          basePrice: beverageBasePrice,
         },
       });
     },
-    [beverages, beveragesBasePrice]
+    [beverages]
   );
 
   return {
@@ -180,29 +178,27 @@ const UseBaseController = () => {
     States: {
       mealBasePrice: currencyConversion(mealBasePrice),
       totalPrice: currencyConversion(totalPrice),
+      knifeAndForkPrice: currencyConversion(knifeAndForkPrice),
       mealCount,
       mealSize,
-      knifeAndForkPrice: currencyConversion(knifeAndForkPrice),
+      cutleryItem,
+      fortuneCookie,
+      springRoll,
       coke: {
+        basePrice: currencyConversion(beverages.coke.basePrice),
         count: beverages.coke.count,
         price: currencyConversion(beverages.coke.price),
       },
       juice: {
+        basePrice: currencyConversion(beverages.juice.basePrice),
         count: beverages.juice.count,
         price: currencyConversion(beverages.juice.price),
       },
       water: {
+        basePrice: currencyConversion(beverages.water.basePrice),
         count: beverages.water.count,
         price: currencyConversion(beverages.water.price),
       },
-      beveragesBasePrice: {
-        coke: currencyConversion(beveragesBasePrice.coke),
-        juice: currencyConversion(beveragesBasePrice.juice),
-        water: currencyConversion(beveragesBasePrice.water),
-      },
-      cutleryItem,
-      fortuneCookie,
-      springRoll,
     },
   };
 };

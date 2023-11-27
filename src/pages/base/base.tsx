@@ -1,27 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import UseBaseController from "./base.controller";
 import BaseView from "@components/baseView/baseView";
-import {
-  Container,
-  MealDescriptionContainer,
-  RestaurantContainer,
-  Meal,
-  MealDescription,
-  MealCountContainer,
-  MealImageContainer,
-  CardLine,
-  CardBase,
-  TextAreaContainer,
-  FoodSizeContainer,
-  FoodSizeFirstItem,
-  FoodSizeSecondItem,
-  BeverageContainer,
-  BeverageItem,
-  CutleryContainer,
-  CutleryItem,
-  ExtraContainer,
-  ExtraItem,
-} from "./base.styles";
+import * as Styled from "./base.styles";
 import MatsuriLogo from "@images/matsuri-branding.png";
 import MealImage from "@images/meat-larger.png";
 import { useEffect } from "react";
@@ -45,14 +25,14 @@ const Base = () => {
 
   return (
     <BaseView haveTicket={true}>
-      <Container>
-        <MealDescriptionContainer>
-          <RestaurantContainer>
+      <Styled.Container>
+        <Styled.MealDescriptionContainer>
+          <Styled.RestaurantContainer>
             <img src={MatsuriLogo} alt="branding" />
             <span>Matsuri Concept</span>
-          </RestaurantContainer>
-          <Meal>
-            <MealDescription>
+          </Styled.RestaurantContainer>
+          <Styled.Meal>
+            <Styled.MealDescription>
               <div>
                 <span>Ceviche de salmão</span>
                 <span>
@@ -71,7 +51,6 @@ const Base = () => {
                     <span></span>
                   )}
                 </div>
-
                 <div>
                   {States.mealCount === 0 && (
                     <Button
@@ -81,37 +60,37 @@ const Base = () => {
                     />
                   )}
                   {States.mealCount === 1 && (
-                    <MealCountContainer>
+                    <Styled.MealCountContainer>
                       <Trash onClick={Actions.onRemoveMeal} />
                       <span>{States.mealCount}</span>
                       <Plus onClick={Actions.onAddMeal} />
-                    </MealCountContainer>
+                    </Styled.MealCountContainer>
                   )}
                   {States.mealCount > 1 && (
-                    <MealCountContainer>
+                    <Styled.MealCountContainer>
                       <Minor onClick={Actions.onRemoveMeal} />
                       <span>{States.mealCount}</span>
                       <Plus onClick={Actions.onAddMeal} />
-                    </MealCountContainer>
+                    </Styled.MealCountContainer>
                   )}
                 </div>
               </div>
-            </MealDescription>
+            </Styled.MealDescription>
 
-            <MealImageContainer>
+            <Styled.MealImageContainer>
               <img src={MealImage} alt="meal" />
-            </MealImageContainer>
-          </Meal>
-        </MealDescriptionContainer>
-        <CardLine />
+            </Styled.MealImageContainer>
+          </Styled.Meal>
+        </Styled.MealDescriptionContainer>
+        <Styled.CardLine />
 
-        <CardBase>
+        <Styled.CardBase>
           <Card.Container>
             <Card.Title text="qual o tamanho?" withFlag />
             <Card.Subtitle text="escolha 1" />
             <Card.Content>
-              <FoodSizeContainer>
-                <FoodSizeFirstItem>
+              <Styled.FoodSizeContainer>
+                <Styled.FoodSizeFirstItem>
                   <label>
                     <Radio
                       checked={States.mealSize === "medium"}
@@ -128,9 +107,9 @@ const Base = () => {
                       de R$ 22,90 por <strong>R$ 19,90</strong>
                     </span>
                   </div>
-                </FoodSizeFirstItem>
+                </Styled.FoodSizeFirstItem>
 
-                <FoodSizeSecondItem>
+                <Styled.FoodSizeSecondItem>
                   <label>
                     <Radio
                       checked={States.mealSize === "large"}
@@ -144,46 +123,46 @@ const Base = () => {
                   <div>
                     <span>R$ 28,90</span>
                   </div>
-                </FoodSizeSecondItem>
-              </FoodSizeContainer>
+                </Styled.FoodSizeSecondItem>
+              </Styled.FoodSizeContainer>
             </Card.Content>
           </Card.Container>
-        </CardBase>
+        </Styled.CardBase>
 
-        <CardLine />
+        <Styled.CardLine />
 
-        <CardBase>
+        <Styled.CardBase>
           <Card.Container>
             <Card.Title text="vai querer bebida?" withFlag={false} />
             <Card.Subtitle text="escolha quantos quiser" />
             <Card.Content>
-              <BeverageContainer>
-                <BeverageItem>
+              <Styled.BeverageContainer>
+                <Styled.BeverageItem>
                   <label>
                     {States.coke.count === 0 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <MinorDisabled />
                         <span>{States.coke.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("coke")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     {States.coke.count === 1 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <Trash
                           onClick={() => Actions.onRemoveBeverage("coke")}
                         />
                         <span>{States.coke.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("coke")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     {States.coke.count > 1 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <Minor
                           onClick={() => Actions.onRemoveBeverage("coke")}
                         />
                         <span>{States.coke.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("coke")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     <span>coca-cola</span>
                   </label>
@@ -191,38 +170,38 @@ const Base = () => {
                     <span>
                       +R${" "}
                       {States.coke.count === 0
-                        ? States.beveragesBasePrice.coke
+                        ? States.coke.basePrice
                         : States.coke.price}
                     </span>
                   </div>
-                </BeverageItem>
+                </Styled.BeverageItem>
 
-                <BeverageItem>
+                <Styled.BeverageItem>
                   <label>
                     {States.juice.count === 0 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <MinorDisabled />
                         <span>{States.juice.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("juice")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     {States.juice.count === 1 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <Trash
                           onClick={() => Actions.onRemoveBeverage("juice")}
                         />
                         <span>{States.juice.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("juice")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     {States.juice.count > 1 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <Minor
                           onClick={() => Actions.onRemoveBeverage("juice")}
                         />
                         <span>{States.juice.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("juice")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     <span>suco prats laranja</span>
                   </label>
@@ -230,38 +209,38 @@ const Base = () => {
                     <span>
                       +R${" "}
                       {States.juice.count === 0
-                        ? States.beveragesBasePrice.juice
+                        ? States.juice.basePrice
                         : States.juice.price}
                     </span>
                   </div>
-                </BeverageItem>
+                </Styled.BeverageItem>
 
-                <BeverageItem>
+                <Styled.BeverageItem>
                   <label>
                     {States.water.count === 0 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <MinorDisabled />
                         <span>{States.water.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("water")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     {States.water.count === 1 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <Trash
                           onClick={() => Actions.onRemoveBeverage("water")}
                         />
                         <span>{States.water.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("water")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     {States.water.count > 1 && (
-                      <MealCountContainer>
+                      <Styled.MealCountContainer>
                         <Minor
                           onClick={() => Actions.onRemoveBeverage("water")}
                         />
                         <span>{States.water.count}</span>
                         <Plus onClick={() => Actions.onAddBeverage("water")} />
-                      </MealCountContainer>
+                      </Styled.MealCountContainer>
                     )}
                     <span>água sem gás</span>
                   </label>
@@ -269,25 +248,25 @@ const Base = () => {
                     <span>
                       +R${" "}
                       {States.water.count === 0
-                        ? States.beveragesBasePrice.water
+                        ? States.water.basePrice
                         : States.water.price}
                     </span>
                   </div>
-                </BeverageItem>
-              </BeverageContainer>
+                </Styled.BeverageItem>
+              </Styled.BeverageContainer>
             </Card.Content>
           </Card.Container>
-        </CardBase>
+        </Styled.CardBase>
 
-        <CardLine />
+        <Styled.CardLine />
 
-        <CardBase>
+        <Styled.CardBase>
           <Card.Container>
             <Card.Title text="precisa de talher?" withFlag={false} />
             <Card.Subtitle text="escolha até um" />
             <Card.Content>
-              <CutleryContainer>
-                <CutleryItem>
+              <Styled.CutleryContainer>
+                <Styled.CutleryItem>
                   <label>
                     <Radio
                       checked={States.cutleryItem === "hashi"}
@@ -296,8 +275,8 @@ const Base = () => {
                     />
                     <span>hashi</span>
                   </label>
-                </CutleryItem>
-                <CutleryItem>
+                </Styled.CutleryItem>
+                <Styled.CutleryItem>
                   <label>
                     <Radio
                       checked={States.cutleryItem === "knifeAndFork"}
@@ -309,21 +288,21 @@ const Base = () => {
                   <div>
                     <span>+R$ {States.knifeAndForkPrice}</span>
                   </div>
-                </CutleryItem>
-              </CutleryContainer>
+                </Styled.CutleryItem>
+              </Styled.CutleryContainer>
             </Card.Content>
           </Card.Container>
-        </CardBase>
+        </Styled.CardBase>
 
-        <CardLine />
+        <Styled.CardLine />
 
-        <CardBase>
+        <Styled.CardBase>
           <Card.Container>
             <Card.Title text="mais alguma coisa?" withFlag={false} />
             <Card.Subtitle text="escolha até 2" />
             <Card.Content>
-              <ExtraContainer>
-                <ExtraItem>
+              <Styled.ExtraContainer>
+                <Styled.ExtraItem>
                   <label>
                     <CheckButton
                       checked={States.fortuneCookie}
@@ -335,8 +314,8 @@ const Base = () => {
                   <div>
                     <span>+R$ 2,00</span>
                   </div>
-                </ExtraItem>
-                <ExtraItem>
+                </Styled.ExtraItem>
+                <Styled.ExtraItem>
                   <label>
                     <CheckButton
                       checked={States.springRoll}
@@ -348,19 +327,19 @@ const Base = () => {
                   <div>
                     <span>+R$ 8,00</span>
                   </div>
-                </ExtraItem>
-              </ExtraContainer>
+                </Styled.ExtraItem>
+              </Styled.ExtraContainer>
             </Card.Content>
           </Card.Container>
-        </CardBase>
+        </Styled.CardBase>
 
-        <CardLine />
-        <TextAreaContainer>
+        <Styled.CardLine />
+        <Styled.TextAreaContainer>
           <textarea
             placeholder={`alguma observação do item? • opcional \nex: tirar algum ingrediente, ponto do prato`}
           ></textarea>
-        </TextAreaContainer>
-      </Container>
+        </Styled.TextAreaContainer>
+      </Styled.Container>
     </BaseView>
   );
 };
